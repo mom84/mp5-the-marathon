@@ -1,7 +1,9 @@
 package at.refugeescode.mp5themarathon;
+import org.springframework.stereotype.Component;
+
 import java.time.Duration;
 
-
+@Component
 public class Runner {
 
     private String name;
@@ -30,5 +32,9 @@ public class Runner {
 
     public void setTime(Duration time) {
         this.time = time;
+    }
+
+    public boolean like(Runner runner) {
+      return (runner.name.equals(name)) && (runner.time == time);
     }
 }

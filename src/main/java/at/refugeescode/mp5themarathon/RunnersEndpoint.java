@@ -9,16 +9,17 @@ public class RunnersEndpoint {
 
     private List<Runner> runners = new ArrayList<>();
 
-
     @GetMapping("/runners")
     List<Runner> getAll() {
         return runners;
     }
 
     @PostMapping("/runners")
-    void post(@RequestBody Runner runner) {
+    Runner post(@RequestBody Runner runner) {
         runners.add(runner);
+        return runner;
     }
+
 
     @GetMapping("/winner")
     Runner getwinner() {
@@ -27,18 +28,6 @@ public class RunnersEndpoint {
                 .findFirst()
                 .orElse(new Runner());
     }
-
-
-//    boolean b;
-//    @PostMapping("/winner")
-//    void poststring(@RequestBody String s){
-//      b = false ;
-//    }
-//
-//    @GetMapping("/winner")
-//    boolean returnMessage(){
-//        return b;
-//    }
 
 
 }
